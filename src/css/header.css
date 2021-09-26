@@ -1,0 +1,145 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Source Sans Pro', sans-serif;
+
+}
+/* .navbar{
+    min-width: 330px;
+} */
+.responsive-header-nav{
+    display: none;
+} 
+.nav-logo{
+    width:5em;
+    object-fit: contain;
+}
+.navbar{
+    background-color: gainsboro;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.nav-left{
+    display:flex;
+    align-items: center;
+}
+/* .fas{
+    display: none;
+} */
+.nav-links{
+   
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.664);
+  font-size: large;
+  margin-right: 20px;
+  text-decoration: none;
+}
+.nav-links a:hover{
+    color:green;
+    text-decoration: underline;
+    text-decoration-color: rgb(99, 66, 14);
+}
+.create{
+    margin-left: 28px;
+    border-radius:12px;
+    text-decoration: none;
+    background-color:black;
+    color: #fff;
+    padding:10px;
+    font-weight:bold;
+
+}
+.nav-logo-name{
+margin-left: 1em;
+color: #000;
+display: flex;
+font-family: 'Grechen Fuemen', cursive;
+}
+.logo-start{
+    color: #000;
+    font-family: 'Grechen Fuemen', cursive;
+}
+.logo-end{
+    color: brown;
+    font-family: 'Grechen Fuemen', cursive;
+}
+.nav-right{
+    display: flex;
+    align-items: center;
+}
+.foo-nav{
+    margin-top: 25px;
+}
+@media all and (max-width:940px){
+.name-links-nav{
+    display:none;
+}
+}
+/* @media all and (max-width:792px){
+   .nav-links{
+       margin-right: 15px;
+display: flex;
+justify-content: center;
+   }
+   .fas{
+    display:flex;
+    justify-content: center;
+}
+.name-links-nav{
+    display: none;
+}
+    } */
+    @media all and (max-width:810px){
+        .nav-logo{
+            width:3em;
+            object-fit: contain;
+        }
+        .nav-logo-name{
+            font-size: smaller;
+        }
+        .create{
+            background-color: gainsboro;
+            color: #000;
+        }
+         }
+
+         @media all and (max-width:550px){
+            .responsive-header-nav{
+                display: block;
+            } 
+            .nav-links{
+                display: none;
+
+            }
+            .nav-left-content {
+                display:none;
+            }
+         }
+
+        
+         .signup-link-res{
+            background-color:black;
+            color: white;
+            border-radius:12px;
+            text-decoration:none;
+            margin-right: 10px;
+            padding: 10px;
+            font-weight: bold;
+         }
+         .login-link-res{
+                color: #000;
+                border-radius:12px;
+                border: 1px solid black;
+                text-decoration:none;
+                margin-right: 10px;
+                padding: 10px;
+                font-weight: bold;
+            
+
+         }
+         @media all and (max-width:315px){
+           .nav-logo-name{
+               display: none;
+           }
+         }
