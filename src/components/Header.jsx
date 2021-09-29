@@ -1,5 +1,6 @@
 import React from 'react';
-import "../css/header.css"
+import "../css/header.css";
+import {Link} from 'react-router-dom';
 const Header = () => {
     return (
         <div>
@@ -15,11 +16,11 @@ const Header = () => {
 <h1 className="logo-start">Cook-</h1>
 <h1 className="logo-end">star</h1>
 </div>
-<div className="nav-left-content create-recipe"><a className="create signup-link" href="#"><i class="fas fa-utensils"></i>  <span className="name-links-nav">Create</span></a></div>
+<div className="nav-left-content create-recipe"><Link to="/create" className="create signup-link" href="#"><i class="fas fa-utensils"></i>  <span className="name-links-nav">Create</span></Link></div>
 <div className="nav-left-content  sign-up"><a className=" create signup-link" href="#"><i class="fas fa-sign-in-alt"></i> <span className="name-links-nav">Sign Up</span></a></div>
 </div>
 <div className="nav-right">
-    <div className="Home nav-links"> <a className="nav-links" href="#"><i class="fas fa-home"></i> <span className="name-links-nav">Home</span></a></div>
+    <div className="Home nav-links"> <Link to="/"className="nav-links" href="#"><i class="fas fa-home"></i> <span className="name-links-nav">Home</span></Link></div>
     <div className="About nav-links"> <a className="nav-links" href="#"><i class="fas fa-address-card"></i> <span className="name-links-nav">About</span></a></div>
     <div className="fav nav-links"> <a className="nav-links" href="#"><i class="fas fa-heart"></i> <span className="name-links-nav">Favourite</span></a></div>
     <div className="Login nav-links"> <a className="nav-links" href="#"><i class="fas fa-sign-in-alt"></i> <span className="name-links-nav">Login</span></a></div>

@@ -1,0 +1,211 @@
+.home-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+   
+    margin-bottom:100px;
+  }
+  .whole-page{
+      margin-bottom: 80px;
+  }
+  
+  .intro {
+    height: 500px;
+    width: 500px;
+  }
+  
+  .intro h1 {
+    font-size: 55px;
+    font-family: "Lobster", cursive;
+    margin: 20px;
+  }
+  
+  .intro p {
+    padding: 10px;
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  .btn {
+    margin: 20px 30%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 25px;
+    width: max-content;
+    background-color: rgb(168, 123, 102);
+    border-radius: 10px;
+    padding: 9px;
+    text-decoration:none;
+    margin-top: 10px;
+  }
+  
+  .img-grid {
+    height: 560px;
+  }
+  
+  .img-grid img {
+    height: 550px;
+    width: 550px;
+  }
+  
+  .section-div {
+    background-color: rgb(235, 227, 227);
+    margin: 10px;
+  }
+  
+  .list {
+    display: flex;
+    justify-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .section-div h1 {
+    padding: 20px;
+    margin-left: 40%;
+    font-size: 40px;
+    font-family: sans-serif;
+    text-decoration: underline;
+  }
+  
+  .cards {
+    border: 2px solid rgb(211, 207, 207);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    -o-box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    display: inline-block;
+    padding: 5px;
+    margin: 20px 45px;
+    width: 275px;
+    height: 350px;
+    font-size: 15px;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  }
+  
+  .prev,
+  .next {
+    position: absolute;
+    top: 200px;
+    background: white;
+    color: black;
+    padding: 4px;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: grid;
+    place-items: center;
+    border-color: transparent;
+    font-size: 1.5rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s linear;
+  }
+  .prev:hover,
+  .next:hover {
+    background: hsl(21, 62%, 45%);
+  }
+  .prev {
+    left: 0;
+  }
+  .next {
+    right: 0;
+  }
+  
+  .explore {
+    margin: 10px 45%;
+  }
+  
+  @media screen and (min-width: 320px) and (max-width: 480px) {
+    .home-info {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+  
+    .intro {
+      height: 450px;
+      width: 450px;
+    }
+  
+    .intro h1 {
+      font-size: 47px;
+    }
+  
+    .intro p {
+      font-size: 17px;
+    }
+  
+    .img-grid {
+      height: 450px;
+    }
+  
+    .img-grid img {
+      height: 400px;
+      width: 400px;
+    }
+  
+    .cards {
+      margin: 20px 80px;
+    }
+  
+    #bigScreen {
+      display: none;
+    }
+  
+    #tablet {
+      display: none;
+    }
+  }
+  
+  @media screen and (min-width: 481px) and (max-width: 768px) {
+    .home-info {
+      grid-template-columns: 1fr;
+      grid-template-rows: 0.6fr 1fr;
+    }
+  
+    .intro {
+      height: 350px;
+      width: 700px;
+    }
+  
+    .intro h1 {
+      font-size: 50px;
+    }
+  
+    .intro p {
+      font-size: 20px;
+    }
+  
+    .img-grid {
+      height: 700px;
+    }
+  
+    .img-grid img {
+      height: 700px;
+      width: 700px;
+    }
+  
+    .cards {
+      margin: 20px 30px;
+    }
+  
+    #bigScreen {
+      display: none;
+    }
+  
+    #mobile {
+      display: none;
+    }
+  }
+  
+  @media screen and (min-width: 768px) {
+    #tablet {
+      display: none;
+    }
+  
+    #mobile {
+      display: none;
+    }
+  }
+
+  
