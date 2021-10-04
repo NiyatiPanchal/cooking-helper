@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
-import SearchBar from '../components/SearchBar';
-import Card from '../components/Card';
+import SearchBar from './SearchBar';
+import Card from './Card';
 import Footer from "./Footer";
 import Header from "./Header";
 // import {FaRegHeart} from 'react-icons/fa'
@@ -85,6 +85,7 @@ function Search() {
         </div>
         
     )
+    
 }
 
 export default Search;

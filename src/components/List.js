@@ -1,10 +1,11 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
 import { useState } from "react";
 import Cards from "./Cards";
 import { data } from "./data";
 
-const List = ({ name }) => {
+const List = ({ name,routes}) => {
   const [recipe, setRecipe] = useState(data);
   const [recipeIndex, setRecipeIndex] = useState(0);
 
@@ -54,8 +55,8 @@ const List = ({ name }) => {
       <h1>{name}</h1>
       <section className="list" id="bigScreen">
         {firstFourRecipe.map((recipe) => {
-          const { id, image, name } = recipe;
-          return <Cards key={id} image={image} name={name} />;
+          const { id, image, label } = recipe;
+          return <Cards key={id} image={image} label={label} />;
         })}
 
         <button className="prev" onClick={prevFourRecipe}>
@@ -92,7 +93,7 @@ const List = ({ name }) => {
           <FiChevronRight />
         </button>
       </section>
-      <button className="btn explore">Explore</button>
+   <Link to={routes}>   <button className="btn explore">Explore</button></Link>
     </div>
   );
 };

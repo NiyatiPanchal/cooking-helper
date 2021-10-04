@@ -1,29 +1,45 @@
 import React from "react";
 import { useState } from "react";
+import axios from 'axios'
 import "../css/UserRecipe.css";
 import Footer from "./Footer";
 import Header from "./Header";
+import { Link } from "react-router-dom";
 
 const UserRecipe = () => {
-  const ingredientArray = { ingredient: "" };
+  const ingredientArray = {  };
   const stepArray = { step: "" };
+  const [file,setFile]=useState(null);
   const [ingredient, setIngredient] = useState([ingredientArray]);
   const [ingredientCount, setIngredientCount] = useState(1);
   const [error, setError] = useState(false);
+ 
+  const [formdata,setData]=useState({
+ 
+    'recipetitle':"",
+    'recipecontent':"",
+    'recipeorigin':"",
+    'serves':"",
+    'cooktime':""
+
+  });
+
   const [step, setStep] = useState([stepArray]);
   const [stepCount, setStepCount] = useState(1);
   const [recipeImage, setRecipeImage] = useState("");
-
-  const imageHandler = (e) => {
-    const selected = e.target.files[0];
-    if (selected) {
-      let reader = new FileReader();
-      reader.onloadend = () => {
-        setRecipeImage(selected);
-      };
-      reader.readAsDataURL(selected);
-    }
-  };
+  // const [ingrid,setIngrid]=useState([]);
+  const ingrid =[];
+  const steps=[];
+  // const imageHandler = (e) => {
+  //   const selected = e.target.files[0];
+  //   if (selected) {
+  //     let reader = new FileReader();
+  //     reader.onloadend = () => {
+  //       setRecipeImage(selected);
+  //     };
+  //     reader.readAsDataURL(selected);
+  //   }
+  // };
 
   const addIngredient = () => {
     if (ingredientCount < 5) {
@@ -60,11 +76,87 @@ const UserRecipe = () => {
     setError(false);
   };
 
+
+const formdatahandler  = (e)=>{
+  const {name,value} = e.target;
+
+  setData(prev=>{
+      return {
+          ...prev,
+          [name]:value
+      }
+  });
+}
+const filechangehandle = (e) =>{
+  console.log(e.target.files[0]);
+  setFile(e.target.files[0]);
+}
+
+ const handleSubmit = (e)=>{
+  
+     
+   for(var i=0;i<ingredientCount;i++){
+     
+     const aao=document.getElementsByClassName(i);
+    
+     if(aao[0].value.length>0){console.log(aao[0].value);
+      
+      ingrid.push(aao[0].value);
+    
+
+    }
+     
+   }
+   for(var i=0;i<stepCount;i++){
+     
+    const temp=`${i}s`;
+    const aas=document.getElementsByClassName(temp);
+   
+    if(aas[0].value.length>0){console.log(aas[0].value);
+     
+     steps.push(aas[0].value);
+   
+
+   }
+    
+  }
+  //  console.log('ss',ingrid);
+    
+         function fetchs() {
+           const data=new FormData();
+           data.append('recipetitle',formdata.recipetitle);
+           data.append('recipecontent',formdata.recipecontent);
+           data.append('recipeorigin',formdata.recipeorigin);
+           data.append('serves',formdata.serves);
+           data.append('cooktime',formdata.cooktime);
+           for(var i=0;i<ingrid.length;i++) {
+            data.append(`ings`,ingrid[i]);
+           }
+           for(var i=0;i<steps.length;i++) {
+            data.append('steps',steps[i]);
+           }
+          
+           data.append('imager',file);
+
+          //  const fulldata={
+          //   forms: formdata,
+          //   ings: ingrid,
+            
+          //   steps:steps,
+          //   imager:file
+             
+          //  }
+         axios.post("http://localhost:3001/recipeData",data);
+      console.log('SUCCESSFULLY SUBMITTED');
+        }
+   
+   fetchs();
+ }
   return (
 
     <div className="form-container">
 <Header/>
-      <form action="">
+      <form  enctype="multipart/form-data" action="/recipeData" method="post" onSubmit={handleSubmit} >
         <div
           style={{
             background: { recipeImage }
@@ -76,26 +168,31 @@ const UserRecipe = () => {
             <img src="https://img.icons8.com/bubbles/2x/camera.png" alt="" />
           </label>
           <input
+           onChange={filechangehandle}
             type="file"
-            alt=""
+            alt="..."
             accept="image/*"
-            id="input-image"
-            onChange={imageHandler}
+            name="imager"
+     
+            // id="input-image"
+           
             // onChange={(e) => console.log(e.target.files)}
           />
         </div>
 
         <div className="container">
           <input
+          onChange={formdatahandler}
             type="text"
-            name=""
+            name="recipetitle"
             id="recipe-title"
             placeholder="Add Your Recipe Title"
             className="about-recipe"
           />
           <div>
             <textarea
-              name=""
+            onChange={formdatahandler}
+              name="recipecontent"
               cols="45"
               rows="10"
               placeholder="Tell us about your recipe - who inspired it, why it's special, what makes it unique, who you cooked it for."
@@ -105,8 +202,9 @@ const UserRecipe = () => {
           </div>
           <div>
             <input
+            onChange={formdatahandler}
               type="text"
-              name=""
+              name="recipeorigin"
               id="recipe-origin"
               placeholder="Add Recipe Origin"
               className="about-recipe"
@@ -117,8 +215,9 @@ const UserRecipe = () => {
               Serves
             </label>
             <input
+            onChange={formdatahandler}
               type="number"
-              name=""
+              name="serves"
               id="serves"
               placeholder="2 people"
               className="about-recipe info"
@@ -129,8 +228,9 @@ const UserRecipe = () => {
               Cook Time
             </label>
             <input
+            onChange={formdatahandler}
               type="text"
-              name=""
+              name="cooktime"
               id="cooktime"
               placeholder="1 hr 30 min"
               className="about-recipe info"
@@ -140,7 +240,7 @@ const UserRecipe = () => {
         <div className="container">
           <h1 className="heading">Ingredients</h1>
           <div>
-            {ingredient.map((index) => (
+            {ingredient.map((_,index) => (
               <div key={index} className="ingredient-div">
                 <label htmlFor="ingredient" className="bars">
                   <img
@@ -149,11 +249,14 @@ const UserRecipe = () => {
                   />
                 </label>
                 <input
+               
+              className={`ingredient-steps ${index}`}
                   type="text"
-                  name="ingredient"
+                  name={index}
                   id="ingredient"
                   placeholder="2cup flour"
-                  className="ingredient-steps"
+                  
+                 
                 />
                 <button
                   className="remove-button"
@@ -189,20 +292,17 @@ const UserRecipe = () => {
 
         <div className="container">
           <h1 className="heading">Steps</h1>
-          {step.map((index) => (
+          {step.map((_,index) => (
             <div key={index} className="ingredient-div">
-              <label htmlFor="steps" className="bars">
-                <img
-                  src="https://img-premium.flaticon.com/png/128/2958/premium/2958791.png?token=exp=1632906074~hmac=475c9534fa580a24b0f0df69df1196e4"
-                  className="label-img"
-                />
-              </label>
+             
               <textarea
-                name=""
+                name={index+"s"}
+
                 id="steps"
                 cols="30"
                 rows="5"
-                className="ingredient-steps"
+                className={`ingredient-steps  ${index}s`}
+                // className= {index+"s"}
               ></textarea>
               <button
                 onClick={() => removeStep(index)}
@@ -229,7 +329,7 @@ const UserRecipe = () => {
             </button>
           )}
         </div>
-        <button className="publish-btn" type="submit" >PUBLISH</button>
+    <button className="publish-btn" type="submit" ><Link to="/users">PUBLISH</Link></button>
       </form>
     </div>
   );

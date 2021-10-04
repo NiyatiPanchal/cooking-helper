@@ -1,11 +1,18 @@
-import React from "react";
+import React,{useEffect} from "react";
 import List from "./List";
-
+import axios from 'axios'
 import {Link} from 'react-router-dom';
 import "../css/Home.css";
 import Footer from "./Footer";
 import Header from "./Header";
 const Home = () => {
+  // CHECKING BACKEND CONNECTION
+//   useEffect(()=>{
+//    async function ef() {   let aa=  await axios.get('http://localhost:3001/');
+//    console.log(aa.data);}
+//  ef();
+//   },[]);
+  
   return (
       <>
     <Header/>
@@ -31,9 +38,9 @@ const Home = () => {
         </section>
       </div>
       <div>
-        <List name="User's Recipes" />
-        <List name="Recent Recipes" />
-        <List name="Favourite Recipes" />
+        <List name="User's Recipes" routes="/users"/>
+        <List name="Recent Recipes" routes="/search"/>
+        <List name="Favourite Recipes" routes="/search" />
       </div>
     </div>
 <Footer/>

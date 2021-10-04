@@ -1,0 +1,118 @@
+.back-to-search{
+    display: inline-block;
+    margin:40px 37%;
+    text-decoration: none;
+    background-color: orange;
+    padding: 5px 8px;
+    color:blue;
+    border-radius: 4px;
+    transition:0.2s linear;
+    border:3px solid orange;
+  }
+  .back-to-search:hover{
+    background-color: rgb(248, 217, 159);
+  }
+  .single-item-data{
+    background-color: orange;
+    padding: 5px 8px;
+    color:blue;
+    border-radius: 4px;
+    display:inline-block;
+    margin-bottom: 10px;
+    margin-right:7px;
+    text-transform: capitalize;
+  } 
+  .pichart-img-container img{
+    border-radius: 10px;
+  }
+  .single-item-container{
+    max-width:1150px;
+    width:80%;
+    margin:0 auto;
+  }
+  
+  @media screen and (max-width:750px){
+    .pichart-img-container{
+      justify-content: center;
+      grid-template-rows: 1fr 1fr;
+      row-gap: 40px;
+      margin-bottom: 40px;
+    }
+    .stand{
+      position:absolute;
+      height:80px;
+      width:10px;
+      background:orange;
+      left:75%;
+      top:1005px;
+    }
+    .new-website{
+      position:absolute;
+      border:3px solid orange;
+      padding: 5px 8px;
+      color:blue;
+      border-radius: 4px;
+      transition:0.2s linear;
+      text-decoration: none;
+      display:inline-block;
+      left:322px;
+      top:1085px;
+    }
+    .chart-label{
+      text-align: center;
+    }
+  }
+    @media screen and (min-width:751px){
+      .pichart-img-container{
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+      }
+      .single-item-info{
+        display:grid;
+        margin-top:40px;
+        position:relative;
+      }
+      .inside-single-item-info{
+        width:42vw;
+        justify-self: center;
+      }
+      .stand{
+        position:absolute;
+        height:80px;
+        width:10px;
+        background:orange;
+        left:83%;
+      }
+      .new-website{
+        position:absolute;
+        border:3px solid orange;
+        padding: 5px 8px;
+        color:blue;
+        border-radius: 4px;
+        transition:0.2s linear;
+        text-decoration: none;
+        display:inline-block;
+        left:892px;
+        top:80px;
+      }
+      .back-to-search{
+        margin:55px 45%;
+      }
+      .chart-label{
+        transform: translateX(588px);
+      }
+    }
+    .pichart-img-container{
+      display:grid;
+    }
+    .new-website:hover{
+      background-color: rgb(248, 217, 159);
+    }
+    .line{
+      height:3px;
+      width:100%;
+      background-color: blue;
+      transform: translateY(-2px);
+      border-radius: 50%;
+    }
+  
