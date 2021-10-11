@@ -19,7 +19,7 @@ const Home = () => {
     <div className="whole-page">
       <div className="home-info">
         <section className="main-section intro">
-          <h1>Cook Your meal with Cookstar</h1>
+          <h1>Cook Your Meal with Cookstar</h1>
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error,
             consequatur veritatis veniam velit voluptas tempore at aliquid
